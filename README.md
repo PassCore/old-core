@@ -13,10 +13,12 @@ Core build for passcore
 bash run.sh
 
 #install into your computer
-sudo -i
 bash install.sh
 #After install, you can run it
 passcore
+
+#Remove from your computer
+bash uninstall.sh
 ```
 
 ## Open source license
