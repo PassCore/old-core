@@ -32,7 +32,7 @@ sudo chmod +x $bin/passcore
 
 #Clean files
 echo "----> Clean useless files"
-rm -fr tmp
+rm -fR tmp
 
 sleep 1
 
