@@ -10,7 +10,7 @@ namespace core
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Passcore.Core");
-            Console.WriteLine("Core Build #20");
+            Console.WriteLine("Core Build #21");
 
             Console.Write("Please Enter pKey_0>");
             string pKey_0 = Console.ReadLine();
@@ -33,8 +33,23 @@ namespace core
                     throw new ArgumentOutOfRangeException();
             }
 
+            Console.Write("Length?[16/32/64/128/256]");
+            int length = Convert.ToInt32(Console.ReadLine().Trim());
+            switch (length)
+            {
+                case 16:
+                case 32:
+                case 64:
+                case 128:
+                case 256:
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
             Program program = new Program();
-            Console.WriteLine("Password: " + program.EncryptMyPass(pKey_0, pKey_1, pKey_2, isHard));
+            Console.WriteLine("Password>" + program.EncryptMyPass(pKey_0, pKey_1, pKey_2, isHard));
             //Console.WriteLine(str[0]);
             Console.ReadKey();
         }
@@ -72,6 +87,7 @@ namespace core
             EncryptPool[8] = UpperSomething(EncryptPool[8]);
             //EncryptPool[7] = EncryptPool[7];
             EncryptPool[6] = UpperSomething(EncryptPool[6]);
+           
             string corePass = AddLikeX(AddLikeX(EncryptPool[8].Substring(0, 64), EncryptPool[7].Substring(0, 64)), EncryptPool[6].Substring(0, 128)); //result 256bit encrypted string
             if (isHard == false)
                 return corePass;
