@@ -3,4 +3,4 @@
 #Author: Kevin
 #Date: 20191026
 
-dotnet "core\core.dll"
+dotnet "core/core.dll"
